@@ -61,10 +61,10 @@
             <div class="traffic-header">
                 <h3>TRAFFIC</h3>
                 <ul class="traffic-nav">
-                    <li>Hourly</li>
-                    <li>Daily</li>
-                    <li>Weekly</li>
-                    <li>Monthly</li>
+                    <li class="traffic-nav-link">Hourly</li>
+                    <li class="traffic-nav-link">Daily</li>
+                    <li class="traffic-nav-link active">Weekly</li>
+                    <li class="traffic-nav-link">Monthly</li>
                 </ul>
             </div>
             <div class="widget-cointainer-full">
@@ -72,14 +72,22 @@
             </div>
         </section>
 
-        <section>
+        <section class="daily">
             <h3>DAILY TRAFFIC</h3>
             <div class="widget-cointainer-half">
                 <canvas id="daily-chart"></canvas>
             </div>
         </section>
 
+        <section class="mobile-user">
+            <h3>MOBILE USER</h3>
+            <div class="widget-cointainer-half">
+                <canvas id="mobile-user"></canvas>
+            </div>
+        </section>
+
         <section class="social-container">
+            <h3>SOCIAL STATS</h3>
             <div class="social-image">
                 <img src="svgs/facebook.svg" alt="">
                 <p>Facebook</p>
@@ -123,8 +131,8 @@
         <section class="message">
             <h3>MESSAGE USER</h3>
             <form class="widget-container" action="GET">
-                <input id="search" type="text" placeholder="Search for User">
-                <textarea name="Message for user" id="message"></textarea>
+                <input id="search" type="text" placeholder="Search for User" class="form-field" id="userField">
+                <textarea name="Message for user" id="message" class="form-area" placeholder="Message for user" id="messageField"></textarea>
                 <button class="button-primary" id="send">Send</button>
             </form>
         </section>
@@ -165,6 +173,11 @@
                 <option value="Europe/London">Europe/London</option>
                 <option value="Asia/Tokyo">Asia/Tokyo</option>
             </select>
+
+            <div class="settings-button">
+                <button class="button-primary" id="save">Save</button>
+                <button class="button-disabled" id="cancel">Cancel</button>
+            </div>
         </section>
 
     </main>
