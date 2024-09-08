@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+svg, img{
+    width: 50px;
+}
+
 body.grid-container{
     display: grid;
     grid-template-columns: 100%;
@@ -40,7 +44,6 @@ main{
 
     main{
         grid-template-columns: 1fr 1fr;
-        height: 100vh;
     }
 
     .traffic{
