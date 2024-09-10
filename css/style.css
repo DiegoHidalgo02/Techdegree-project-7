@@ -65,9 +65,8 @@ body.grid-container{
         top: 0;
         right: 0;
     }
-    
-    
-    
+
+
     nav{
         grid-area: nav;
         background-color: rgb(71, 69, 206);
