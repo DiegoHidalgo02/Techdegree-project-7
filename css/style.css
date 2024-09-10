@@ -17,6 +17,7 @@ body.grid-container {
     "header"
     "nav"
     "main";
+  font-family: "Open Sans", sans-serif;
 }
 
 .widget-container-full,
@@ -24,71 +25,98 @@ body.grid-container {
   width: 95vw;
 }
 
-    header{
-        grid-area: header;
-        background-color: rgb(122, 122, 161);
-    
-        display: flex;
-        align-items: center;
-        padding: 1.1rem 1rem 1.1rem 1rem;
-        color: white;
-    }
-    
-    header h1 sup{
-        font-size: 11px;
-        margin-right: 5rem;
-    }
-    
-    hr{
-        height: 50px;
-        border: none;
-        background: white;
-        width: 1.5px;
-    }
-    
-    header div{
-        display: flex;
-        margin-left: auto;
-        margin-right: 18px;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    
-    header svg{
-        width: 30px;
-    }
-    
-    #notification{
-        margin: 0;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background-color: rgb(7, 199, 7);
-        top: 0;
-        right: 0;
-    }
+header {
+  grid-area: header;
+  background-color: rgb(122, 122, 161);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem .8rem 1.1rem .8rem;
+  color: white;
+  width: 100%;
+}
 
 
-    nav{
-        grid-area: nav;
-        background-color: rgb(71, 69, 206);
-    }
-    
-    nav ul {
-        display: flex;
-        list-style: none;
-        justify-content: space-between;
-        width: 55%;
-        margin: auto;
-        padding: 1.2rem 0 1.2rem 0;
-    }
-    
-    path{
-        fill: white;
-    }
-main{
-    grid-area: main;
-    display: grid;
+header h1 {
+  font-size: 20px;
+}
+
+header h1 span{
+    font-weight: normal;
+}
+
+header h1 sup {
+  font-size: 9px;
+}
+
+hr {
+  height: 45px;
+  border: none;
+  background: white;
+  width: 1px;
+  margin: 0 13px 0 15px;
+}
+
+#user{
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.bell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+header svg{
+  width: 18.5px;
+}
+
+header img{
+    width: 39px;
+}
+
+#notification {
+  margin: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgb(7, 199, 7);
+  top: 0;
+  right: 0;
+}
+
+header h3 {
+  font-size: 11px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+
+
+
+nav {
+  grid-area: nav;
+  background-color: rgb(71, 69, 206);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 55%;
+  margin: auto;
+  padding: 1.2rem 0 1.2rem 0;
+}
+
+path {
+  fill: white;
+}
+main {
+  grid-area: main;
+  display: grid;
 }
 
 @media (min-width: 768px) {
