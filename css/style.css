@@ -104,12 +104,12 @@ nav ul {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  width: 55%;
+  width: 70%;
   margin: auto;
 }
 
 nav svg{
-    width: 37px;
+    width: 35px;
 }
 
 path {
