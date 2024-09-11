@@ -134,7 +134,7 @@ main{
 
 .main-header div{
     height: 100%;
-    width: 100%;
+    flex: 1;
     border-bottom: 1.3px solid rgb(198, 196, 196);
     border-left: 1.3px solid rgb(198, 196, 196);
 }
@@ -155,7 +155,7 @@ section{
 }
     
 .navTab{
-    width: 90px;
+    width: 22.72%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,7 +166,7 @@ section{
 }
 
 .slider{
-    width: 90px;
+    width: 22.72%;
     height: 100%;
     position: absolute;
     border-radius: 20px;
