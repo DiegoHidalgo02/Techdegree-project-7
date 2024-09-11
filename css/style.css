@@ -115,9 +115,32 @@ nav svg{
 path {
   fill: white;
 }
-main {
+main{
   grid-area: main;
   display: grid;
+}
+
+.main-header{
+    display: flex;
+    padding-left: 15px;
+    height: 60px;
+    align-items: center;
+}
+
+.main-header h2{
+    margin-right: 15px;
+    font-weight:500;
+}
+
+.main-header div{
+    height: 100%;
+    width: 100%;
+    border-bottom: 1.3px solid rgb(198, 196, 196);
+    border-left: 1.3px solid rgb(198, 196, 196);
+}
+
+section{
+    padding: 0 15px 0 15px;
 }
 
 @media (min-width: 768px) {
