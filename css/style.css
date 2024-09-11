@@ -143,6 +143,57 @@ section{
     padding: 0 15px 0 15px;
 }
 
+.traffic-nav{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 7px;
+}
+
+.traffic-nav input[type="radio"]{
+    display: none;
+}
+    
+.navTab{
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 0;
+    cursor: pointer;
+    z-index: 2;
+    text-align: center;
+}
+
+.slider{
+    width: 90px;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+    background-color: #4973f3;
+    z-index: 0;
+    transition: 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+    color: #f1f1f1;
+}
+input[id="Hourly"]:checked ~ .slider {
+    transform: translateX(0);
+}
+input[id="Daily"]:checked ~ .slider {
+    transform: translateX(100%);
+}
+input[id="Weekly"]:checked ~ .slider {
+    transform: translateX(200%);
+}
+input[id="Monthly"]:checked ~ .slider {
+    transform: translateX(300%);
+}
+  
+
+
+
 @media (min-width: 768px) {
   body.grid-container {
     grid-template-columns: 55px 1fr;

@@ -65,12 +65,17 @@
         <section class="traffic">
             <div class="traffic-header">
                 <h3>TRAFFIC</h3>
-                <ul class="traffic-nav">
-                    <li class="traffic-nav-link">Hourly</li>
-                    <li class="traffic-nav-link">Daily</li>
-                    <li class="traffic-nav-link active">Weekly</li>
-                    <li class="traffic-nav-link">Monthly</li>
-                </ul>
+                <div class="traffic-nav">
+                    <input name="tabs" type="radio" id="Hourly" checked>
+                    <label class="navTab" for="Hourly">Hourly</label>
+                    <input name="tabs" type="radio" id="Daily">
+                    <label class="navTab" for="Daily">Daily</label>
+                    <input name="tabs" type="radio" id="Weekly">
+                    <label class="navTab" for="Weekly">Weekly</label>
+                    <input name="tabs" type="radio" id="Monthly">
+                    <label class="navTab" for="Monthly">Monthly</label>
+                    <span class="slider"></span>
+                </div>
             </div>
             <div class="widget-cointainer-full">
                 <canvas id="traffic-chart"></canvas>
