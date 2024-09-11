@@ -118,7 +118,9 @@ path {
 main {
   grid-area: main;
   display: grid;
+  padding: 0 15px 0 15px;
 }
+
 
 @media (min-width: 768px) {
   body.grid-container {
