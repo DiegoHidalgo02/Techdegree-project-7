@@ -39,6 +39,7 @@ main{
     display: flex;
     align-items: center;
     position: relative;
+    margin-top: 7px;
 }
 
 .traffic-nav input[type="radio"]{
