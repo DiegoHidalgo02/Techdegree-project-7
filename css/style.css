@@ -195,7 +195,7 @@ section h3{
   font-weight: 500;
 }
 
-.social-container div{
+.social-container > div{
   display: flex;
   border: 1px solid rgb(196, 196, 196);
   padding: 23px;
@@ -203,9 +203,22 @@ section h3{
   border-radius: 5px;
   margin-bottom: 15px;
   background-color: rgb(235, 235, 235);
-  p{
-    margin-left: 15px;
-    font-size: 1rem;
+
+  img{
+    width: 80px;
+  }
+
+}
+
+.social-card-text{
+  margin-left: 15px;
+  p:first-child{ 
+    font-size: 1.1rem;
+    margin-bottom: -12px;
+  }
+  p:nth-child(2){
+    font-size: 3.5rem;
+    
   }
 }
 
