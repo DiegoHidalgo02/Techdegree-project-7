@@ -200,7 +200,7 @@ input[id="Monthly"]:checked ~ .slider {
 .settings label{
   margin-left: auto;
 }
-=======
+
 .widget-container{
   display: flex;
   flex-direction: column;
