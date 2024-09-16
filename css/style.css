@@ -140,6 +140,7 @@ main{
 }
 
 section{
+    margin-top: 20px;
     padding: 0 15px 0 15px;
 }
 
@@ -190,7 +191,7 @@ input[id="Weekly"]:checked ~ .slider {
 input[id="Monthly"]:checked ~ .slider {
     transform: translateX(300%);
 }
-  
+
 .widget-container{
   display: flex;
   flex-direction: column;
@@ -230,7 +231,7 @@ input::placeholder, textarea::placeholder{
 .button-primary{
   background-color: #7477bf;
   color: white;
-}
+
 
 @media (min-width: 768px) {
   body.grid-container {
