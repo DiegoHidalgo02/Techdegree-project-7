@@ -192,6 +192,7 @@ input[id="Monthly"]:checked ~ .slider {
     transform: translateX(300%);
 }
 
+
 .member{
   display: flex;
   flex-direction: column;
