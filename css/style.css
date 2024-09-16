@@ -192,6 +192,44 @@ input[id="Monthly"]:checked ~ .slider {
     transform: translateX(300%);
 }
 
+
+.social-container > div{
+  display: flex;
+  border: 1px solid rgb(196, 196, 196);
+  padding: 23px;
+  margin-top: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: rgb(235, 235, 235);
+
+  .svg-bg{
+    padding: 1em;
+    border-radius: 50%;
+    background-color: #7477bf;
+    display: flex;
+    align-items: center;
+  }
+
+  svg{
+    width: 50px;
+  }
+
+}
+
+.social-card-text{
+  margin-left: 15px;
+  p:first-child{ 
+    font-size: 1.1rem;
+    margin-bottom: -12px;
+  }
+  p:nth-child(2){
+    font-size: 3.5rem;
+    
+  }
+}
+
+  
+
 .settings > div:not(.selection){
   display: flex;
   margin-top: 2rem;
@@ -200,7 +238,7 @@ input[id="Monthly"]:checked ~ .slider {
 .settings label{
   margin-left: auto;
 }
-=======
+
 .widget-container{
   display: flex;
   flex-direction: column;
@@ -240,7 +278,7 @@ input::placeholder, textarea::placeholder{
 .button-primary{
   background-color: #7477bf;
   color: white;
-
+}
 
 .switch-ios.switch-light > span {
   height: 2.5em;
