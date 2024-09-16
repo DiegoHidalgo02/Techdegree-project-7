@@ -201,6 +201,30 @@ input[id="Monthly"]:checked ~ .slider {
   margin-left: auto;
 }
 
+.switch-ios.switch-light > span {
+  height: 2.5em;
+}
+
+.switch-ios.switch-light > span span {
+  top: 15%;
+}
+
+.switch-ios.switch-light input:checked ~ span {
+  box-shadow: inset 0 0 0 30px #7477bf;
+}
+
+.switch-ios.switch-light a {
+  left: 2%;
+  top: 10%;
+  outline: none;
+}
+
+.switch-ios.switch-light input:checked ~ span a{
+  border-color: rgb(189, 189, 189);
+  outline: none;
+  left: 95%;
+}
+
 .settings #timezone{
   width: 100%;
   margin-top: 2rem;
