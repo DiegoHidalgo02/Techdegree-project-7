@@ -204,8 +204,16 @@ section h3{
   margin-bottom: 15px;
   background-color: rgb(235, 235, 235);
 
-  img{
-    width: 80px;
+  .svg-bg{
+    padding: 1em;
+    border-radius: 50%;
+    background-color: #7477bf;
+    display: flex;
+    align-items: center;
+  }
+
+  svg{
+    width: 50px;
   }
 
 }
