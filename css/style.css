@@ -231,7 +231,7 @@ input::placeholder, textarea::placeholder{
 .button-primary{
   background-color: #7477bf;
   color: white;
-
+}
 
 @media (min-width: 768px) {
   body.grid-container {
