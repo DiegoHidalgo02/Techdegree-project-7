@@ -109,7 +109,7 @@ nav ul {
 }
 
 nav svg{
-    width: 35px;
+    width: 30px;
 }
 
 path {
@@ -395,6 +395,12 @@ input::placeholder, textarea::placeholder{
 
   main {
     grid-template-columns: 1fr 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
   }
 
   .traffic {
