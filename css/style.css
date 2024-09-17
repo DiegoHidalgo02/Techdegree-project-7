@@ -444,7 +444,9 @@ input::placeholder, textarea::placeholder{
     margin-top: -34px;
   }
 
-  
+  .settings div:nth-of-type(1), .settings div:nth-of-type(2){
+    width: 40%;
+  }
 
   .main-header,
   .social-container,
