@@ -27,7 +27,7 @@ body.grid-container {
 
 header {
   grid-area: header;
-  background-color: rgb(122, 122, 161);
+  background-color: #7477bf;
 
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ header img{
 }
 
 header h3 {
-  font-size: 11px;
+  font-size: .8rem;
   font-weight: normal;
   margin-left: 5px;
 }
@@ -97,7 +97,7 @@ header h3 {
 nav {
   grid-area: nav;
   padding: 1rem 0 1rem 0;
-  background-color: rgb(71, 69, 206);
+  background-color: rgba(77,76,114,255);
 }
 
 nav ul {
@@ -140,9 +140,12 @@ main{
 }
 
 section{
-    border-bottom: 1px solid rgb(189, 189, 189);
-    margin-top: 20px;
-    padding: 0 15px 0 15px;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  padding: 1.5rem 1rem 1.5rem 1rem;
+
+  h3{
+    font-weight: 600;
+  }
 }
 
 .traffic-nav{
@@ -172,7 +175,7 @@ section{
     height: 100%;
     position: absolute;
     border-radius: 20px;
-    background-color: #4973f3;
+    background-color: #81c98f;
     z-index: 0;
     transition: 0.3s ease;
 }
@@ -189,7 +192,7 @@ input[id="Daily"]:checked ~ .slider {
 input[id="Weekly"]:checked ~ .slider {
     transform: translateX(200%);
 }
-input[id="Monthly"]:checked ~ .slider {
+input[id="Monthly"]:checked ~ .slider{
     transform: translateX(300%);
 }
 
@@ -220,12 +223,14 @@ input[id="Monthly"]:checked ~ .slider {
 .social-card-text{
   margin-left: 15px;
   p:first-child{ 
+    color: #6366b7;
     font-size: 1.1rem;
+    font-weight: 500;
     margin-bottom: -12px;
   }
   p:nth-child(2){
     font-size: 3.5rem;
-    
+    color:#777777;
   }
 }
 
@@ -247,6 +252,10 @@ input[id="Monthly"]:checked ~ .slider {
 
   p:first-child{
     margin-top: 10px;
+  }
+
+  a{
+    color: #7477bf;
   }
 
   span{
@@ -342,7 +351,7 @@ input::placeholder, textarea::placeholder{
   outline: none;
   border: 1px solid rgb(189, 189, 189);
   color: grey;
-
+  background-color: transparent;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -372,6 +381,8 @@ input::placeholder, textarea::placeholder{
 
 .settings button:nth-child(2){
   margin-left: auto;
+  background-color: #999999;
+  color: white;
 }
 
 @media (min-width: 768px) {
