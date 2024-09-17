@@ -418,6 +418,28 @@ input::placeholder, textarea::placeholder{
     
   }
 
+  .member{
+    flex-direction: row;
+    text-align: left;
+    width: 100%;
+  }
+
+  .members-text{
+    margin-left: 1rem;
+    width: 100%;
+  }
+
+  .members-text p:first-child, .members-text p:nth-child(2){
+    width: 50%;
+  }
+
+  .members-text p:nth-child(3){
+    float: right;
+    margin-top: -34px;
+  }
+
+  
+
   .main-header,
   .social-container,
   .members,
