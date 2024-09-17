@@ -393,6 +393,16 @@ input::placeholder, textarea::placeholder{
       "nav main";
   }
 
+  .traffic-header{
+    display: flex;
+  }
+
+  .traffic-nav{
+    margin-left: auto;
+    width: 400px;
+    align-self: flex-end;
+  }
+
   main {
     grid-template-columns: 1fr 1fr;
   }
