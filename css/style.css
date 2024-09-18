@@ -315,6 +315,7 @@ input[id="Monthly"]:checked ~ .slider{
 input::placeholder, textarea::placeholder{
   font-family:"Open Sans", sans-serif;
   font-size: 1.05rem;
+  color: #b9b9b9;
 }
 
 
