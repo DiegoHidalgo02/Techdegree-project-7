@@ -504,7 +504,8 @@ input::placeholder, textarea::placeholder{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: none;
-    width: 70%;
+    width: 50%;
+    max-width: 800px;
   }
 }
 
