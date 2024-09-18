@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-svg,
-img {
-  width: 50px;
-}
-
 body.grid-container {
   display: grid;
   grid-template-columns: 100%;
