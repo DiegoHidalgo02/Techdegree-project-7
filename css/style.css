@@ -140,7 +140,7 @@ main{
 }
 
 section{
-  border-bottom: 1px solid rgb(189, 189, 189);
+  border-bottom: 1.3px solid rgb(198, 196, 196);
   padding: 1.5rem 1rem 1.5rem 1rem;
 
   h3{
@@ -199,7 +199,7 @@ input[id="Monthly"]:checked ~ .slider{
 
 .social-container > div{
   display: flex;
-  border: 1px solid rgb(196, 196, 196);
+  border: 2px solid #e1e1e1;
   padding: 23px;
   margin-top: 15px;
   border-radius: 5px;
@@ -286,7 +286,7 @@ input[id="Monthly"]:checked ~ .slider{
   input, textarea, button{
     border-radius: 5px;
     outline: none;
-    border: 1px solid grey;
+    border: 2px solid #e1e1e1;
 
 
   }
@@ -350,7 +350,7 @@ input::placeholder, textarea::placeholder{
   font-size: 1.05rem;
   border-radius: 5px;
   outline: none;
-  border: 1px solid rgb(189, 189, 189);
+  border: 2px solid #e1e1e1;
   color: grey;
   background-color: transparent;
   -webkit-appearance: none;
@@ -377,7 +377,7 @@ input::placeholder, textarea::placeholder{
   padding: 1.2rem 0px;
   text-transform: uppercase;
   font-size: 1.05rem;
-  border: 1px solid  rgb(189, 189, 189);
+  border: 1px solid #e1e1e1;
   border-radius: 5px;
 }
 
@@ -488,7 +488,7 @@ input::placeholder, textarea::placeholder{
 
   .mobile-user{
     grid-area: mobileU;
-    border-left: 1px solid rgb(189, 189, 189);
+    border-left: 1.3px solid rgb(198, 196, 196)
   }
 
   .social-container{
@@ -501,7 +501,7 @@ input::placeholder, textarea::placeholder{
 
   .members-activity{
     grid-area: membersA;
-    border-left: 1px solid rgb(189, 189, 189);
+    border-left: 1.3px solid rgb(198, 196, 196);
   }
 
   .message{
@@ -512,7 +512,7 @@ input::placeholder, textarea::placeholder{
     grid-area: settings;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid rgb(189, 189, 189);
+    border-left: 1.3px solid rgb(198, 196, 196);
   }
 
   .settings div:nth-of-type(1), .settings div:nth-of-type(2){
