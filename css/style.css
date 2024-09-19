@@ -284,28 +284,24 @@ input[id="Monthly"]:checked ~ .slider{
 
   img{
     width: 75px;
+    border-radius: 50%;
   }
-
-  p{
-    line-height: 22px;
-  }
-
-  p:first-child{
-    margin-top: 10px;
-  }
-
-  a{
-    color: #7477bf;
-  }
-
-  span{
-    font-size: bold;
-  }
-
 }
 
-.member:not(:nth-last-child()){
-  border-bottom: 1px solid gray;
+.members-text p{
+  line-height: 22px;
+}
+
+.members-text p:first-child{
+  margin-top: 10px;
+}
+
+.members-text span{
+  font-weight: bold ;
+}
+
+div.member:not(:last-child){
+  border-bottom: 1px solid rgb(198, 196, 196);;
 }
 
 .settings > div:not(.selection){
