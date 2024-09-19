@@ -496,15 +496,6 @@ input::placeholder, textarea::placeholder{
     width: 70%;
   }
 
-  .members-activity .members-text::after{
-    content: ">";
-    color: #7477bf;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-  }
-
   .main-header,
   .social-container,
   .members,
