@@ -286,6 +286,10 @@ input[id="Monthly"]:checked ~ .slider{
     width: 75px;
     border-radius: 50%;
   }
+
+  >div:last-child{
+    display: none;
+  }
 }
 
 .members-text{
@@ -485,6 +489,10 @@ input::placeholder, textarea::placeholder{
     flex-direction: row;
     text-align: left;
     width: 100%;
+
+    > div:last-child{
+      display: block;
+    }
   }
 
   .members-text{
