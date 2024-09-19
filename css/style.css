@@ -496,7 +496,7 @@ input::placeholder, textarea::placeholder{
     width: 70%;
   }
 
-  .members-text::after{
+  .members-activity .members-text::after{
     content: ">";
     color: #7477bf;
     font-weight: bold;
