@@ -55,10 +55,56 @@ usersInfo = [
 ]
 
 
+function generateRandomActivity(user) {
+    const activities = [
+      "commented on",
+      "liked the post",
+      "shared",
+      "posted"
+    ];
+    const topics = [
+      "WebApp's SEO Tips",
+      "Facebook's Changes for 2024",
+      "Instagram's New Features",
+      "Twitter Marketing Strategies"
+    ];
+    const timeFrames = [
+      "1 hour ago",
+      "2 hours ago",
+      "4 hours ago",
+      "5 hours ago",
+      "1 day ago"
+    ];
+  
+    const activity = activities[Math.floor(Math.random() * activities.length)];
+    const topic = topics[Math.floor(Math.random() * topics.length)];
+    const timeFrame = timeFrames[Math.floor(Math.random() * timeFrames.length)];
+  
+    return `${user.name} ${activity} ${topic} ${timeFrame}`;
+}
+
+
 window.onload = function() {
     header.style.display = "none";
     nav.style.display = "none"
     main.style.display = "none";
+
+    const membersActivityContainer = document.querySelector('.members-container-activity');
+    membersActivityContainer.innerHTML = ''; // Pulisci il contenitore
+  
+    usersInfo.forEach(user => {
+      const activityText = generateRandomActivity(user);
+      const memberDiv = document.createElement('div');
+      memberDiv.className = 'member';
+      memberDiv.innerHTML = `
+        <img src="${user.imgPath}" alt="${user.name}" class="src">
+        <div class="members-text">
+          <p>${activityText}</p>
+        </div>
+      `;
+      membersActivityContainer.appendChild(memberDiv);
+    });
+
 }
 
 users.addEventListener('click', e => {
