@@ -14,7 +14,8 @@ usersInfo = [
             facebook: 10320,
             instagram: 16445,
             twitter: 22189 
-        }
+        },
+        date: "10/15/20"
     },
 
     {
@@ -26,7 +27,8 @@ usersInfo = [
             facebook: 1320,
             instagram: 20200,
             twitter: 11120 
-        }
+        },
+        date:"10/15/20"
     },
 
     {
@@ -38,7 +40,8 @@ usersInfo = [
             facebook: 0,
             instagram: 250000,
             twitter: 200000 
-        }
+        },
+        date:"10/15/20"
     },
 
     {
@@ -50,7 +53,8 @@ usersInfo = [
             facebook: 5980,
             instagram: 3200,
             twitter: 1200 
-        }
+        },
+        date:"10/15/20"
     }
 ]
 
@@ -80,7 +84,8 @@ function generateRandomActivity(user) {
     const topic = topics[Math.floor(Math.random() * topics.length)];
     const timeFrame = timeFrames[Math.floor(Math.random() * timeFrames.length)];
   
-    return `${user.name} ${activity} ${topic} ${timeFrame}`;
+    // return `${user.name} ${activity} ${topic} ${timeFrame}`;
+    return [user.name, activity, topic, timeFrame];
 }
 
 
@@ -90,19 +95,37 @@ window.onload = function() {
     main.style.display = "none";
 
     const membersActivityContainer = document.querySelector('.members-container-activity');
+    const newMembersContainer = document.querySelector('.members-container');
     membersActivityContainer.innerHTML = ''; // Pulisci il contenitore
   
     usersInfo.forEach(user => {
       const activityText = generateRandomActivity(user);
-      const memberDiv = document.createElement('div');
-      memberDiv.className = 'member';
-      memberDiv.innerHTML = `
+      const memberActivityDiv = document.createElement('div');
+      const newMemberDiv = document.createElement('div');
+
+      memberActivityDiv.className = 'member';
+      newMemberDiv.className = 'member';
+
+      newMemberDiv.innerHTML = `
         <img src="${user.imgPath}" alt="${user.name}" class="src">
         <div class="members-text">
-          <p>${activityText}</p>
+            <p>${user.name}</p>
+            <a href="#">${user.email}</a>
         </div>
+        <p>${user.date}</p>
       `;
-      membersActivityContainer.appendChild(memberDiv);
+      
+      memberActivityDiv.innerHTML = `
+        <img src="${user.imgPath}" alt="${user.name}" class="src">
+        <div class="members-text">
+          <p>${activityText[0]} ${activityText[1]} <span>${activityText[2]}</span></p>
+          <p>${activityText[3]}</p>
+        </div>
+        <div> > </div>
+      `;
+      
+      newMembersContainer.appendChild(newMemberDiv);
+      membersActivityContainer.appendChild(memberActivityDiv);
     });
 
 }
