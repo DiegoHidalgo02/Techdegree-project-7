@@ -36,35 +36,31 @@ function convertIntoAlphabeticalNumber(n) {
   return number;
 }
 
-let socialContainer = document.querySelector(".social-container");
+
+window.addEventListener('resize', () => {
+
+  const socialSection = document.querySelector(".social-section");
+  const socialContainer = document.querySelector(".social-container");
+  const socialDivs = document.querySelector(".social-container > div");
+
+  let widthDivs = 0;
+
+  socialDivs.forEach(element =>{
+
+    const width = element.offsetWidth;
+    console.log("Width:" + width)
+
+    widthDivs = widthDivs + width;
+    console.log("widthDivs" + widthDivs);
+  })
+
+  const socialSectionWidth = socialSection.offsetWidth;
+
+  if(widthDivs > socialSectionWidth){
+     
+  }
+
+ console.log("ciao");
 
 
-
-window.addEventListener("resize", function() {
-  let socialDiv = document.querySelectorAll(".social-container > div");
-
-  socialDiv.forEach((element) => {
-    let computedWidthFirst = document
-      .querySelector(".svg-bg")
-      .getBoundingClientRect().width;
-    let computedWidthSecond = document
-      .querySelector(".social-card-text")
-      .getBoundingClientRect().width;
-
-    let ComputedWidthDivs = computedWidthFirst + computedWidthSecond;
-
-    socialDivWidth = element.getBoundingClientRect().width;
-
-    if (ComputedWidthDivs > socialDivWidth) {
-      let numberText = document.querySelector(".social-card-text:last-child");
-
-      let NumberNoComa = numberText.toString.replace(",", "");
-
-      /*let NumberSocial = parseInt(NumeberNoComa, 10);*/
-
-      let alphaNumber = convertIntoAlphabeticalNumber(NumberNoComa);
-
-      numberText.textContent = alphaNumber;
-    }
-  });
-});
+})
