@@ -1,66 +1,113 @@
+import { usersInfo } from "../js/login.js";
+
 function convertIntoAlphabeticalNumber(n) {
   let number;
   let numberArray = [];
 
-  let count = 0;
-  n.map((number) => count++);
+  const count = n.length;
+  // n.map((number) => count++);
 
-  if (count >= 6) {
+  if(!n.includes("k") && !n.includes("M")){
     switch (count) {
+      case 1:
+        number = n;
+        break;
+      case 4:
+        [...n].forEach(Element =>{
+          if (numberArray.length < 1) {
+            numberArray.push(Element);
+          }
+        });
+        number = numberArray.toString().replaceAll(",", "") + "k";
+        break;
+      case 5:
+        [...n].forEach(Element =>{
+          if (numberArray.length < 2) {
+            numberArray.push(Element);
+          }
+        });
+        number = numberArray.toString().replaceAll(",", "") + "k";
+        break;
       case 6:
-        n.every((element) => {
-          numberArray.push(value);
-          if (numberArray.length === 3) {
-            return false;
+        [...n].forEach(Element =>{
+          if (numberArray.length < 3) {
+            numberArray.push(Element);
           }
         });
 
-        number = numberArray.toString() + "k";
+        number = numberArray.toString().replaceAll(",", "") + "k";
         break;
       case 7:
-        n.every((element) => {
-          numberArray.push(value);
-          if (numberArray.length === 1) {
-            return false;
+        [...n].forEach(Element =>{
+          
+          if (numberArray.length <= 1) {
+            numberArray.push(Element);
           }
         });
 
-        number = numberArray.toString() + "M";
+        number = numberArray.toString().replaceAll(",", "") + "M";
         break;
       default:
         console.log("Punto di avvertimento");
         break;
     }
+
+    return number;
   }
 
-  return number;
+  return n;
 }
 
+function controllAlphaNumber(array){
+  array.forEach(element => {
+    if(element.textContent.includes("k")){
+      return false;
+    }else{
+      return true;
+    }
+  })
+}
+
+const socialSection = document.querySelector(".social-section");
+const socialContainer = document.querySelector(".social-container");
+const socialDivs = document.querySelectorAll(".social-container > div");
 
 window.addEventListener('resize', () => {
-
-  const socialSection = document.querySelector(".social-section");
-  const socialContainer = document.querySelector(".social-container");
-  const socialDivs = document.querySelector(".social-container > div");
 
   let widthDivs = 0;
 
   socialDivs.forEach(element =>{
-
     const width = element.offsetWidth;
-    console.log("Width:" + width)
-
     widthDivs = widthDivs + width;
-    console.log("widthDivs" + widthDivs);
   })
 
   const socialSectionWidth = socialSection.offsetWidth;
 
-  if(widthDivs > socialSectionWidth){
-     
+
+  if(getComputedStyle(socialContainer).flexDirection === "row"){
+    const numberText = document.querySelectorAll(".social-card-text p:last-child");
+
+    if(widthDivs > socialSectionWidth && !controllAlphaNumber(numberText)){
+      
+      numberText.forEach(element => {
+
+        let noComaNumber = element.textContent.replaceAll(",", "");
+
+        let alphaNumber = convertIntoAlphabeticalNumber(noComaNumber);
+
+        element.textContent = alphaNumber;
+
+      })
+    }else if(widthDivs < socialSectionWidth || getComputedStyle(socialContainer).flexDirection === "column"){
+      const userName = document.querySelector("#user h3").textContent;
+      const user = usersInfo.find(user => user.name === userName);
+      let count = 0;
+      for (let prop in user.social){
+        numberText[count].textContent = user.social[prop].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        count++;
+      }
+
+    }
   }
-
- console.log("ciao");
-
 
 })

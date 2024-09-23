@@ -4,7 +4,7 @@ const header = document.querySelector("header");
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
 
-usersInfo = [
+export const usersInfo = [
     {   
         id: "VictoriaChambers",
         name: "Victoria Chambers",
@@ -56,7 +56,7 @@ usersInfo = [
         },
         date:"10/15/20"
     }
-]
+];
 
 
 function generateRandomActivity(user) {
