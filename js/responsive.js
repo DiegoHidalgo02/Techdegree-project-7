@@ -71,8 +71,37 @@ function controllAlphaNumber(array){
 const socialSection = document.querySelector(".social-section");
 const socialContainer = document.querySelector(".social-container");
 const socialDivs = document.querySelectorAll(".social-container > div");
+const socialNumber = document.querySelectorAll(".social-card-text p:last-child");
+const socialSvg = document.querySelectorAll(".svg-bg");
+let socialNumberWidth = [];
+let socialSvgWidth = [];
+
+socialNumber.forEach(element => {
+   const numberWidth = element.offsetWidth;
+   socialNumberWidth.push(numberWidth);
+})
+
+socialSvg.forEach(element =>{
+  const svgWidth = element.offsetWidth;
+  socialSvgWidth.push(svgWidth);
+})
+
+const widthProva = socialNumberWidth[0] + socialSvgWidth[0];
+const textDiv = document.querySelector(".social-card-text").offsetWidth;
+
+let width;
+
+for(let i = 0; i < socialSvg.length; i++){
+
+  width = socialNumberWidth[i] + socialSvgWidth[i];
+
+}
+
+
 
 window.addEventListener('resize', () => {
+
+  const provaWidthDiv = document.querySelector(".social-container").offsetWidth;
 
   let widthDivs = 0;
 
@@ -84,30 +113,29 @@ window.addEventListener('resize', () => {
   const socialSectionWidth = socialSection.offsetWidth;
 
 
-  if(getComputedStyle(socialContainer).flexDirection === "row"){
-    const numberText = document.querySelectorAll(".social-card-text p:last-child");
+  const numberText = document.querySelectorAll(".social-card-text p:last-child");
 
-    if(widthDivs > socialSectionWidth && !controllAlphaNumber(numberText)){
+  if(widthDivs > socialSectionWidth && !controllAlphaNumber(numberText) &&  getComputedStyle(socialContainer).flexDirection === "row" ){
       
-      numberText.forEach(element => {
+    numberText.forEach(element => {
 
-        let noComaNumber = element.textContent.replaceAll(",", "");
+      let noComaNumber = element.textContent.replaceAll(",", "");
 
-        let alphaNumber = convertIntoAlphabeticalNumber(noComaNumber);
+      let alphaNumber = convertIntoAlphabeticalNumber(noComaNumber);
 
-        element.textContent = alphaNumber;
+      element.textContent = alphaNumber;
 
-      })
-    }else if(widthDivs < socialSectionWidth || getComputedStyle(socialContainer).flexDirection === "column"){
-      const userName = document.querySelector("#user h3").textContent;
-      const user = usersInfo.find(user => user.name === userName);
-      let count = 0;
-      for (let prop in user.social){
-        numberText[count].textContent = user.social[prop].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        count++;
-      }
+    })
+
+  }else if(widthDivs < socialSectionWidth && provaWidthDiv > textDiv && window.innerWidth > 1080 || getComputedStyle(socialContainer).flexDirection === "column" ){
+
+    const userName = document.querySelector("#user h3").textContent;
+    const user = usersInfo.find(user => user.name === userName);
+    let count = 0;
+    for (let prop in user.social){
+      numberText[count].textContent = user.social[prop].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      count++;
+    }
 
     }
-  }
-
 })
