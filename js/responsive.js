@@ -1,4 +1,4 @@
-import { usersInfo } from "../js/login.js";
+import { usersInfo } from "./login.js";
 
 function convertIntoAlphabeticalNumber(n) {
   let number;
@@ -58,15 +58,6 @@ function convertIntoAlphabeticalNumber(n) {
   return n;
 }
 
-function controllAlphaNumber(array){
-  array.forEach(element => {
-    if(!element.textContent.includes("k")){
-      return false;
-    }else{
-      return true;
-    }
-  })
-}
 
 const socialSection = document.querySelector(".social-section");
 const socialContainer = document.querySelector(".social-container");
@@ -83,18 +74,14 @@ window.addEventListener('resize', () => {
   })
 
   const socialSectionWidth = socialSection.offsetWidth;
-
-
   const numberText = document.querySelectorAll(".social-card-text p:last-child");
 
-  if(widthDivs > socialSectionWidth && !controllAlphaNumber(numberText) &&  getComputedStyle(socialContainer).flexDirection === "row" ){
+  if(widthDivs > socialSectionWidth && getComputedStyle(socialContainer).flexDirection === "row" ){
       
     numberText.forEach(element => {
 
       let noComaNumber = element.textContent.replaceAll(",", "");
-
       let alphaNumber = convertIntoAlphabeticalNumber(noComaNumber);
-
       element.textContent = alphaNumber;
 
     })
@@ -104,9 +91,12 @@ window.addEventListener('resize', () => {
     const userName = document.querySelector("#user h3").textContent;
     const user = usersInfo.find(user => user.name === userName);
     let count = 0;
+
     for (let prop in user.social){
+
       numberText[count].textContent = user.social[prop].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       count++;
+
     }
 
     }
