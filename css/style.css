@@ -33,6 +33,7 @@
   width: 100%;
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: 2.5px solid rgb(200, 200, 200);
 }
 
 .user p{
@@ -96,6 +97,11 @@ header hr {
     display: flex;
     align-items: center;
     align-self: flex-end;
+
+    img{
+      width: 40px;
+      border-radius: 50%;
+    }
 }
 
 .bell {
@@ -125,7 +131,7 @@ header img{
 header h3 {
   font-size: .8rem;
   font-weight: normal;
-  margin-left: 5px;
+  margin-left: 1em;
 }
 
 nav {
@@ -231,6 +237,10 @@ input[id="Monthly"]:checked ~ .slider{
     transform: translateX(300%);
 }
 
+.social-container{
+  display: flex;
+  flex-direction: column;
+}
 
 .social-container > div{
   display: flex;
@@ -256,6 +266,7 @@ input[id="Monthly"]:checked ~ .slider{
 }
 
 .social-card-text{
+  width: 100%;
   margin-left: 15px;
   p:first-child{ 
     color: #6366b7;
@@ -279,28 +290,37 @@ input[id="Monthly"]:checked ~ .slider{
 
   img{
     width: 75px;
+    border-radius: 50%;
   }
 
-  p{
-    line-height: 22px;
+  >div:last-child{
+    display: none;
   }
-
-  p:first-child{
-    margin-top: 10px;
-  }
-
-  a{
-    color: #7477bf;
-  }
-
-  span{
-    font-size: bold;
-  }
-
 }
 
-.member:not(:nth-last-child()){
-  border-bottom: 1px solid gray;
+.members-text{
+  position: relative;
+}
+
+.members-text p{
+  line-height: 22px;
+}
+
+.members-text p:first-child{
+  margin-top: 10px;
+}
+
+.members-text span{
+  font-weight: bold ;
+}
+
+.members-text a{
+  text-decoration: none;
+  color: #7477bf;
+}
+
+div.member:not(:last-child){
+  border-bottom: 1px solid rgb(198, 196, 196);;
 }
 
 .settings > div:not(.selection){
@@ -444,6 +464,10 @@ input::placeholder, textarea::placeholder{
     align-items: center;
   }
 
+  #user img{
+    width: 55px;
+  }
+
   .traffic {
     grid-column: 1 / 3;
   }
@@ -458,8 +482,12 @@ input::placeholder, textarea::placeholder{
     align-self: flex-end;
   }
 
+  .social-container{
+    flex-direction: row;
+  }
+
   .social-container > div{
-    width: 32.8%;
+    flex: 1;
     float: left;
   }
 
@@ -471,6 +499,10 @@ input::placeholder, textarea::placeholder{
     flex-direction: row;
     text-align: left;
     width: 100%;
+
+    > div:last-child{
+      display: block;
+    }
   }
 
   .members-text{
@@ -479,20 +511,11 @@ input::placeholder, textarea::placeholder{
   }
 
   .members-text p:first-child, .members-text p:nth-child(2){
-    width: 50%;
-  }
-
-  .members-text p:nth-child(3){
-    float: right;
-    margin-top: -34px;
-  }
-
-  .settings div:nth-of-type(1), .settings div:nth-of-type(2){
-    width: 40%;
+    width: 70%;
   }
 
   .main-header,
-  .social-container,
+  .social-section,
   .members,
   .members-activity,
   .message,
@@ -538,7 +561,7 @@ input::placeholder, textarea::placeholder{
     border-left: 1.3px solid rgb(198, 196, 196)
   }
 
-  .social-container{
+  .social-section{
     grid-area: social;
   }
 
