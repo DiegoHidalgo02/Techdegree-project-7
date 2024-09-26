@@ -266,6 +266,7 @@ input[id="Monthly"]:checked ~ .slider{
 }
 
 .social-card-text{
+  width: 100%;
   margin-left: 15px;
   p:first-child{ 
     color: #6366b7;
