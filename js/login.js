@@ -131,7 +131,7 @@ window.onload = function() {
 }
 
 users.addEventListener('click', e => {
-    if (e.target.parentNode.tagName === "DIV"){
+    if (e.target.parentNode.tagName === "DIV" && e.target.parentNode.classList.contains("user")){
 
         overlay.style.display = "none";
 
