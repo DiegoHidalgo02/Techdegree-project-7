@@ -60,7 +60,7 @@ function convertIntoAlphabeticalNumber(n) {
 
 function controllAlphaNumber(array){
   array.forEach(element => {
-    if(element.textContent.includes("k")){
+    if(!element.textContent.includes("k")){
       return false;
     }else{
       return true;
@@ -71,37 +71,9 @@ function controllAlphaNumber(array){
 const socialSection = document.querySelector(".social-section");
 const socialContainer = document.querySelector(".social-container");
 const socialDivs = document.querySelectorAll(".social-container > div");
-const socialNumber = document.querySelectorAll(".social-card-text p:last-child");
-const socialSvg = document.querySelectorAll(".svg-bg");
-let socialNumberWidth = [];
-let socialSvgWidth = [];
-
-socialNumber.forEach(element => {
-   const numberWidth = element.offsetWidth;
-   socialNumberWidth.push(numberWidth);
-})
-
-socialSvg.forEach(element =>{
-  const svgWidth = element.offsetWidth;
-  socialSvgWidth.push(svgWidth);
-})
-
-const widthProva = socialNumberWidth[0] + socialSvgWidth[0];
-const textDiv = document.querySelector(".social-card-text").offsetWidth;
-
-let width;
-
-for(let i = 0; i < socialSvg.length; i++){
-
-  width = socialNumberWidth[i] + socialSvgWidth[i];
-
-}
-
 
 
 window.addEventListener('resize', () => {
-
-  const provaWidthDiv = document.querySelector(".social-container").offsetWidth;
 
   let widthDivs = 0;
 
@@ -127,7 +99,7 @@ window.addEventListener('resize', () => {
 
     })
 
-  }else if(widthDivs < socialSectionWidth && provaWidthDiv > textDiv && window.innerWidth > 1080 || getComputedStyle(socialContainer).flexDirection === "column" ){
+  }else if(widthDivs < socialSectionWidth && window.innerWidth > 1080 || getComputedStyle(socialContainer).flexDirection === "column" ){
 
     const userName = document.querySelector("#user h3").textContent;
     const user = usersInfo.find(user => user.name === userName);
