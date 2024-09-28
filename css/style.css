@@ -104,10 +104,25 @@ header hr {
     }
 }
 
+@keyframes bellTouch {
+
+  50%{
+    transform: rotate(-25deg);
+  }
+
+  100%{
+    transform: rotate(28deg) scale(1.2);
+ }
+
+}
+
 .bell {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+.bell svg:hover, .bell svg:active{
+  animation: bellTouch .4s;
 }
 
 header svg{
@@ -452,10 +467,13 @@ input::placeholder, textarea::placeholder{
     grid-template-areas:
       "header header"
       "nav main";
+      height: 100vh;
+      overflow: hidden;
   }
 
   main {
     grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
   }
 
   nav ul {
