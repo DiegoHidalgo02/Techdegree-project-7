@@ -111,7 +111,7 @@ header hr {
   }
 
   100%{
-    transform: rotate(28deg) scale(1.2);
+    transform: rotate(45deg) scale(1.2);
  }
 
 }
@@ -120,10 +120,84 @@ header hr {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
 }
+
 .bell svg:hover, .bell svg:active{
-  animation: bellTouch .4s;
+  animation: bellTouch .55s ease;
 }
+
+#ndropDownMenu{
+  display: block;
+  position: absolute;
+  top: 130%;
+  padding: 1.2rem;
+  width: 300px;
+  border-radius: 5px;
+  color: #777777;
+  z-index: 4;
+  background-color: #f5f5f5;
+  border: 2px solid #e1e1e1;
+}
+
+#ndropDownMenu h2{
+  margin-bottom: .8rem;
+}
+
+#ndropDownMenu li{
+  padding: .7rem;
+  border-bottom: 1px solid #bebebe;
+  font-weight: 650;
+  display: flex;
+  align-items: center;  
+}
+
+#ndropDownMenu li:not(:first-of-type){
+  margin-top: 10px;
+}
+
+#ndropDownMenu li::before{
+  content: "\A";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background: #2ac00c;
+  display:inline-block;
+  margin-right: 1.5rem;
+}
+
+#notificationHeader{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 5px 8px 5px 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#notificationHeader span{
+  font-size: 23px;
+}
+
+#notificationHeader p{
+  font-size: 12.5px;
+  font-weight: 650;
+  margin-left: 3.5px;
+}
+
+#notificationHeader:hover{
+  background-color: rgb(224, 224, 224);
+  color: #6366b7;
+}
+
+#notificationHeader:active span{
+  font-size: 22.95px;
+}
+
+#notificationHeader:active p{
+  font-size: 12.45px;
+}
+
 
 header svg{
   width: 20px;
