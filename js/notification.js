@@ -1,5 +1,7 @@
 const alertSection = document.querySelector("#alert");
+const bell = document.querySelector(".bell");
 const notificationPoint = document.querySelector("#notification");
+
 
 const notification = [
   "New activity recorded",
@@ -41,3 +43,7 @@ alertSection.appendChild(banner);
 spanClose.addEventListener("click", ()=>{
     banner.style.display = "none";
 })
+
+bell.addEventListener("click", () => {
+    notificationPoint.style.visibility = "hidden";
+});
