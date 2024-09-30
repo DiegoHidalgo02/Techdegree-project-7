@@ -147,7 +147,7 @@ header hr {
 #ndropDownMenu li{
   padding: .7rem;
   border-bottom: 1px solid #bebebe;
-  font-weight: 650;
+  font-weight: 550;
   display: flex;
   align-items: center;  
 }
@@ -161,43 +161,49 @@ header hr {
   width:10px;
   height:10px;
   border-radius:50%;
-  background: #2ac00c;
+  background: #777777;
   display:inline-block;
   margin-right: 1.5rem;
 }
 
-#notificationHeader{
+#ndropDownMenu li > span{
+  margin-left: auto;
+}
+
+#ndropDownMenu li > span:active{
+  transform: scale(1.1);
+  color: #6366b7;
+}
+
+#markAllRead{
   display: flex;
   align-items: center;
   width: max-content;
   padding: 5px 8px 5px 5px;
   border-radius: 5px;
   margin-bottom: 5px;
+  transition: all .5s;
+  transition-timing-function: ease;
 }
 
-#notificationHeader span{
+#markAllRead span{
   font-size: 23px;
 }
 
-#notificationHeader p{
+#markAllRead p{
   font-size: 12.5px;
-  font-weight: 650;
+  font-weight: 630;
   margin-left: 3.5px;
 }
 
-#notificationHeader:hover{
+#markAllRead:hover{
   background-color: rgb(224, 224, 224);
   color: #6366b7;
 }
 
-#notificationHeader:active span{
-  font-size: 22.95px;
+#markAllRead:active{
+  background-color: rgb(199, 199, 199);
 }
-
-#notificationHeader:active p{
-  font-size: 12.45px;
-}
-
 
 header svg{
   width: 20px;
