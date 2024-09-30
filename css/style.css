@@ -128,11 +128,11 @@ header hr {
 }
 
 #ndropDownMenu{
-  display: block;
+  display: none;
   position: absolute;
   top: 130%;
   padding: 1.2rem;
-  width: 300px;
+  width: 400px;
   border-radius: 5px;
   color: #777777;
   z-index: 4;
@@ -140,9 +140,6 @@ header hr {
   border: 2px solid #e1e1e1;
 }
 
-#ndropDownMenu h2{
-  margin-bottom: .8rem;
-}
 
 #ndropDownMenu li{
   padding: .7rem;
@@ -150,6 +147,7 @@ header hr {
   font-weight: 550;
   display: flex;
   align-items: center;  
+  cursor: pointer;
 }
 
 #ndropDownMenu li:not(:first-of-type){
@@ -173,6 +171,18 @@ header hr {
 #ndropDownMenu li > span:active{
   transform: scale(1.1);
   color: #6366b7;
+}
+
+#headerNotification{
+  display: flex;
+  align-items: center;
+  margin-bottom: .8rem;
+}
+
+#closeNotification{
+  margin-top: 5px;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 #markAllRead{
@@ -199,6 +209,7 @@ header hr {
 #markAllRead:hover{
   background-color: rgb(224, 224, 224);
   color: #6366b7;
+  cursor: pointer;
 }
 
 #markAllRead:active{
