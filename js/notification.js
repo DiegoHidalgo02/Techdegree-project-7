@@ -1,7 +1,8 @@
 const alertSection = document.querySelector("#alert");
-const bell = document.querySelector(".bell");
+const bell = document.querySelector(".bell > svg");
 const notificationPoint = document.querySelector("#notification");
-
+const dropMenu = document.querySelector("#ndropDownMenu");
+const closeNotification = document.querySelector("#closeNotification");
 
 const notification = [
   "New activity recorded",
@@ -44,6 +45,15 @@ spanClose.addEventListener("click", ()=>{
     banner.style.display = "none";
 })
 
+closeNotification.addEventListener("click", () => {
+  if(dropMenu.style.display === "block"){
+    dropMenu.style.display = "none";
+  }
+})
+
 bell.addEventListener("click", () => {
     notificationPoint.style.visibility = "hidden";
+    dropMenu.style.display = "block";
 });
+
+
