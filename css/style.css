@@ -134,43 +134,49 @@ header hr {
   padding: 1.2rem;
   width: 400px;
   border-radius: 5px;
-  color: #777777;
   z-index: 4;
   background-color: #f5f5f5;
   border: 2px solid #e1e1e1;
+  color: #292727;
 }
 
-
-#ndropDownMenu li{
+#dropMenuList li{
   padding: .7rem;
   border-bottom: 1px solid #bebebe;
   font-weight: 550;
   display: flex;
   align-items: center;  
   cursor: pointer;
+  transition: background-color .5s;
+  transition-timing-function: ease;
 }
 
-#ndropDownMenu li:not(:first-of-type){
+#dropMenuList li:not(:first-of-type){
   margin-top: 10px;
 }
 
-#ndropDownMenu li::before{
+#dropMenuList li::before{
   content: "\A";
   width:10px;
   height:10px;
   border-radius:50%;
-  background: #777777;
+  background:#6366b7;
   display:inline-block;
   margin-right: 1.5rem;
 }
 
-#ndropDownMenu li > span{
+#dropMenuList li > span{
   margin-left: auto;
 }
 
-#ndropDownMenu li > span:active{
+#dropMenuList li > span:active{
   transform: scale(1.1);
-  color: #6366b7;
+  
+}
+
+#dropMenuList li:hover:not(span){
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
 }
 
 #headerNotification{
@@ -185,6 +191,10 @@ header hr {
   cursor: pointer;
 }
 
+#closeNotification:active{
+  transform: scale(.95);
+}
+
 #markAllRead{
   display: flex;
   align-items: center;
@@ -194,6 +204,7 @@ header hr {
   margin-bottom: 5px;
   transition: all .5s;
   transition-timing-function: ease;
+  color: #777777;
 }
 
 #markAllRead span{
