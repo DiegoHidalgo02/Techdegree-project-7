@@ -236,6 +236,7 @@ header img{
 }
 
 #notification {
+  visibility: hidden;
   margin: 0;
   width: 5px;
   height: 5px;

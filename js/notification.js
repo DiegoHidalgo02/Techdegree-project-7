@@ -57,8 +57,6 @@ setTimeout(() => {
   for (let i = 0; i < 2; i++) {
     generateNotification();
   }
-  const checkNotification = document.querySelector("#checkNotification")
-
 }, 10000);
 
 setInterval(() => {
@@ -121,8 +119,8 @@ markAllRead.addEventListener("click", ()=>{
 
 dropMenuList.addEventListener("click", e =>{
 
-  if(e.target.tagName === "LI"){
-    e.target.remove();
+  if(e.target.tagName === "SPAN"){
+    e.target.parentNode.remove();
     notificationReaded.push(e);
     notificationUnreaded.pop();
     if(notificationUnreaded.length === 0){
