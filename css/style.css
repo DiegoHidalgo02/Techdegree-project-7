@@ -111,7 +111,7 @@ header hr {
   }
 
   100%{
-    transform: rotate(28deg) scale(1.2);
+    transform: rotate(45deg) scale(1.2);
  }
 
 }
@@ -120,9 +120,111 @@ header hr {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
 }
+
 .bell svg:hover, .bell svg:active{
-  animation: bellTouch .4s;
+  animation: bellTouch .55s ease;
+}
+
+#ndropDownMenu{
+  display: none;
+  position: absolute;
+  top: 130%;
+  padding: 1.2rem;
+  width: 400px;
+  border-radius: 5px;
+  z-index: 4;
+  background-color: #f5f5f5;
+  border: 2px solid #e1e1e1;
+  color: #292727;
+}
+
+#dropMenuList li{
+  padding: .7rem;
+  border-bottom: 1px solid #bebebe;
+  font-weight: 550;
+  display: flex;
+  align-items: center;  
+  cursor: pointer;
+  transition: background-color .5s;
+  transition-timing-function: ease;
+}
+
+#dropMenuList li:not(:first-of-type){
+  margin-top: 10px;
+}
+
+#dropMenuList li::before{
+  content: "\A";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#6366b7;
+  display:inline-block;
+  margin-right: 1.5rem;
+}
+
+#dropMenuList li > span{
+  margin-left: auto;
+}
+
+#dropMenuList li > span:active{
+  transform: scale(1.1);
+  
+}
+
+#dropMenuList li:hover:not(span){
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
+}
+
+#headerNotification{
+  display: flex;
+  align-items: center;
+  margin-bottom: .8rem;
+}
+
+#closeNotification{
+  margin-top: 5px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+#closeNotification:active{
+  transform: scale(.95);
+}
+
+#markAllRead{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 5px 8px 5px 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: all .5s;
+  transition-timing-function: ease;
+  color: #777777;
+}
+
+#markAllRead span{
+  font-size: 23px;
+}
+
+#markAllRead p{
+  font-size: 12.5px;
+  font-weight: 630;
+  margin-left: 3.5px;
+}
+
+#markAllRead:hover{
+  background-color: rgb(224, 224, 224);
+  color: #6366b7;
+  cursor: pointer;
+}
+
+#markAllRead:active{
+  background-color: rgb(199, 199, 199);
 }
 
 header svg{
