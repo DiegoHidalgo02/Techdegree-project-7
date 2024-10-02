@@ -542,6 +542,14 @@ input::placeholder, textarea::placeholder{
   color: white;
 }
 
+.button-primary:hover{
+  background-color: #7b7eca;
+}
+
+.button-primary:active{
+  background-color: #6164ad;
+}
+
 .switch-ios.switch-light > span {
   height: 2.5em;
 }
