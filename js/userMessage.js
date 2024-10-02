@@ -1,3 +1,5 @@
+import { usersInfo } from "./login.js";
+
 const SendButton = document.querySelector("#send");
 const search = document.querySelector("#search");
 const textArea = document.querySelector("#message");
@@ -55,4 +57,25 @@ setInterval(() => {
         ErrorOnDisplay = false;
         succesOnDisplay = false;
     }
-}, 90000);
+}, 30000);
+
+
+search.addEventListener("keyup", (event)=>{
+
+    let textInput = event.target.value.toLowerCase();
+    let textInputLength = textInput.length;
+    if(textInputLength  > 2){
+
+        usersInfo.forEach(element => {
+            if(element.name.toLowerCase().includes(textInput.toLowerCase())){
+                search.value = element.name;
+            }
+        });  
+    }
+
+    // if(event.key === "Enter"){
+    //     if(overlay.innerText.length > 0){
+    //         search.value = overlay.innerText;
+    //     }
+    // }
+})
