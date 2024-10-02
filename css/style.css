@@ -509,6 +509,20 @@ div.member:not(:last-child){
   }
 }
 
+.headerSectionMessage p{
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: red;
+  margin-top: 6px;
+}
+
+.headerSectionMessage span{
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
 input::placeholder, textarea::placeholder{
   font-family:"Open Sans", sans-serif;
   font-size: 1.05rem;
