@@ -513,8 +513,15 @@ div.member:not(:last-child){
   display: flex;
   align-items: center;
   font-size: 13px;
-  color: red;
   margin-top: 6px;
+}
+
+.headerSectionMessage .error{
+  color: red;
+}
+
+.headerSectionMessage .succes{
+  color: rgb(21, 180, 21);
 }
 
 .headerSectionMessage span{
