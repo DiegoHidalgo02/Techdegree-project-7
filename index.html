@@ -175,11 +175,14 @@
         </section>
 
         <section class="message">
-            <h3>MESSAGE USER</h3>
-            <form class="widget-container" action="GET">
-                <input id="search" type="text" placeholder="Search for User" class="form-field" id="userField">
+            <div class="headerSectionMessage"><h3>MESSAGE USER</h3></div>
+            <form class="widget-container">
+                <div id="inputSearch">
+                    <input id="search" type="text" placeholder="Search for User" class="form-field" id="userField" autocomplete="off">
+                    <ul id="list"></ul>
+                </div>
                 <textarea name="Message for user" id="message" class="form-area" placeholder="Message for user" id="messageField"></textarea>
-                <button class="button-primary" id="send">Send</button>
+                <button type='button' class="button-primary" id="send">Send</button>
             </form>
         </section>
 
@@ -226,5 +229,6 @@
     <script type="module" src="js/login.js"></script>
     <script type="module" src="js/responsive.js"></script>
     <script src="js/notification.js"></script>
+    <script type="module" src="js/userMessage.js"></script>
 </body>
 </html>

@@ -485,13 +485,12 @@ div.member:not(:last-child){
     border-radius: 5px;
     outline: none;
     border: 2px solid #e1e1e1;
-
-
   }
 
   input{
     padding: 1.2rem .7rem;
     background-color: #f5f5f5;
+    width: 100%;
   }
 
   textarea{
@@ -509,6 +508,57 @@ div.member:not(:last-child){
   }
 }
 
+#inputSearch{
+  position: relative;
+}
+
+#list{
+  display: none;
+  list-style: none;
+  border: 2px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+}
+
+#list li{
+  padding: .5rem .6rem;
+  transition: background-color .6s;
+  transition-timing-function: ease-out;
+}
+
+#list li:not(:last-of-type){
+  border-bottom: 2px solid #e1e1e1;
+}
+
+#list li:hover{
+  background-color:#e1e1e1;
+}
+
+
+.headerSectionMessage p{
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.headerSectionMessage .error{
+  color: red;
+}
+
+.headerSectionMessage .succes{
+  color: rgb(21, 180, 21);
+}
+
+.headerSectionMessage span{
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
 input::placeholder, textarea::placeholder{
   font-family:"Open Sans", sans-serif;
   font-size: 1.05rem;
@@ -519,6 +569,14 @@ input::placeholder, textarea::placeholder{
 .button-primary{
   background-color: #7477bf;
   color: white;
+}
+
+.button-primary:hover{
+  background-color: #7b7eca;
+}
+
+.button-primary:active{
+  background-color: #6164ad;
 }
 
 .switch-ios.switch-light > span {
