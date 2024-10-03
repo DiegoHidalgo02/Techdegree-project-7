@@ -12,6 +12,8 @@ let list = document.querySelector("#list");
 
 function displayNames(value){
     search.value = value;
+    removeItems();
+    list.style.display = "none";
 }
 
 window.displayNames = displayNames;
@@ -22,6 +24,18 @@ function removeItems(){
     items.forEach(element => {
         element.remove();
     });
+}
+
+function removeclass(p, str){
+    p.classList.remove(str)
+}
+
+function createMessage(children, parent, textCont, className){
+    children.classList.add("material-symbols-outlined");
+    children.textContent = textCont;
+    parent.prepend(children);
+    parent.classList.add(className);
+    messageHeader.appendChild(parent);
 }
 
 SendButton.addEventListener("click", ()=>{
@@ -35,32 +49,21 @@ SendButton.addEventListener("click", ()=>{
             paragraph.textContent = "Error: search field and text area are empty";
         }
 
-        icon.classList.add("material-symbols-outlined");
-        icon.textContent = "warning";
-        paragraph.prepend(icon);
+        createMessage(icon, paragraph, "warning", "error");
 
-        if(paragraph.classList.contains("succes")){
-            paragraph.classList.remove("succes")
-        }
+        removeclass(paragraph, "succes");
 
-        paragraph.classList.add("error");
-        messageHeader.appendChild(paragraph);
         ErrorOnDisplay = true;
         succesOnDisplay = false;
 
      } else if(succesOnDisplay === false) {
 
         paragraph.textContent = "Message sent";
-        icon.classList.add("material-symbols-outlined");
-        icon.textContent = "check";
-        paragraph.prepend(icon);
 
-        if(paragraph.classList.contains("error")){
-            paragraph.classList.remove("error")
-        }
+        createMessage(icon, paragraph, "check", "succes");
 
-        paragraph.classList.add("succes")
-        messageHeader.appendChild(paragraph);
+        removeclass(paragraph, "error");
+
         ErrorOnDisplay = false
         succesOnDisplay = true;
     }
@@ -93,7 +96,7 @@ search.addEventListener("keyup", (event)=>{
 
     usersInfo.forEach(element => {
 
-        if(element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != ""){
+        if(element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != "" && event.key !== "Enter"){
             
             list.style.display = "block";
 
