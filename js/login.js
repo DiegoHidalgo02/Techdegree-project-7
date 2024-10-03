@@ -135,8 +135,8 @@ users.addEventListener('click', e => {
 
         overlay.style.display = "none";
 
-        header.style.display = "flex";
-        nav.style.display = "block";
+        header.style.display = "grid";
+        nav.style.display = "grid";
         main.style.display = "grid";
 
         const userName = document.querySelector("#user > h3");

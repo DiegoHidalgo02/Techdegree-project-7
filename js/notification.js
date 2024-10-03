@@ -57,14 +57,14 @@ setTimeout(() => {
   for (let i = 0; i < 2; i++) {
     generateNotification();
   }
-}, 10000);
+}, 4000);
 
 setInterval(() => {
   if(notification.length !== notificationTextGenerated.length){
     generateNotification();
   }
 
-}, 180000);
+}, 90000);
 
 const banner = document.createElement("div");
 const paragraph = document.createElement("p");
