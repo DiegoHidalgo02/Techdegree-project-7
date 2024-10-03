@@ -10,6 +10,12 @@ const paragraph = document.createElement("p");
 const icon = document.createElement("span");
 let list = document.querySelector("#list");
 
+function displayNames(value){
+    search.value = value;
+}
+
+window.displayNames = displayNames;
+
 SendButton.addEventListener("click", ()=>{
 
     if (search.value === "" || textArea.value === "") {
@@ -80,6 +86,7 @@ search.addEventListener("keyup", (event)=>{
             const idListItem = element.id + "listItem";
             listItem.textContent = element.name;
             listItem.id = idListItem;
+            listItem.setAttribute("onclick", "displayNames('" + element.name + "')");
 
             list.appendChild(listItem);
 
@@ -108,3 +115,5 @@ search.addEventListener("keyup", (event)=>{
 
     });
 })
+
+
