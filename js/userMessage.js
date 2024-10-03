@@ -8,6 +8,7 @@ let ErrorOnDisplay = false;
 let succesOnDisplay = false;
 const paragraph = document.createElement("p");
 const icon = document.createElement("span");
+let list = document.querySelector("#list");
 
 SendButton.addEventListener("click", ()=>{
 
@@ -59,23 +60,51 @@ setInterval(() => {
     }
 }, 30000);
 
+let listItemsOnDisplay = [];
+
+search.addEventListener("keydown", (event)=>{
+    if(event.key === "Enter"){
+        event.preventDefault();
+    }
+})
 
 search.addEventListener("keyup", (event)=>{
 
-    let textInput = event.target.value.toLowerCase();
-    let textInputLength = textInput.length;
-    if(textInputLength  > 2){
+    usersInfo.forEach(element => {
 
-        usersInfo.forEach(element => {
-            if(element.name.toLowerCase().includes(textInput.toLowerCase())){
-                search.value = element.name;
-            }
-        });  
-    }
+        if(element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != "" && !listItemsOnDisplay.includes(element.name)){
+            
+            list.style.display = "block";
 
-    // if(event.key === "Enter"){
-    //     if(overlay.innerText.length > 0){
-    //         search.value = overlay.innerText;
-    //     }
-    // }
+            const listItem = document.createElement("li");
+            const idListItem = element.id + "listItem";
+            listItem.textContent = element.name;
+            listItem.id = idListItem;
+
+            list.appendChild(listItem);
+
+            listItemsOnDisplay.push(element.name);
+            
+        }else if(!element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != "" && listItemsOnDisplay.includes(element.name)){
+
+            const idListItem = element.id + "listItem";
+            const indexDelete = listItemsOnDisplay.indexOf(element.name);
+            listItemsOnDisplay.splice(indexDelete, 1);
+
+            document.querySelector(`#${idListItem}`).remove();
+
+        }else if(search.value === ""){
+            listItemsOnDisplay = [];
+            list.innerHTML = "";
+            list.style.display = "none";
+        }
+
+        if(event.key === "Enter"){
+            search.value = list.firstChild.textContent;
+            list.innerHTML = "";
+            list.style.display = "none";
+            listItemsOnDisplay = [];
+        }
+
+    });
 })
