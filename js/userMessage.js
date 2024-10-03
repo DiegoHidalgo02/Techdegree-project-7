@@ -16,6 +16,14 @@ function displayNames(value){
 
 window.displayNames = displayNames;
 
+function removeItems(){
+    let items = document.querySelectorAll(".listItem");
+
+    items.forEach(element => {
+        element.remove();
+    });
+}
+
 SendButton.addEventListener("click", ()=>{
 
     if (search.value === "" || textArea.value === "") {
@@ -76,9 +84,16 @@ search.addEventListener("keydown", (event)=>{
 
 search.addEventListener("keyup", (event)=>{
 
+    if(event.key === "Enter" && search.value !== ""){
+        search.value = list.firstChild.textContent;
+        list.style.display = "none";
+    }
+
+    removeItems();
+
     usersInfo.forEach(element => {
 
-        if(element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != "" && !listItemsOnDisplay.includes(element.name)){
+        if(element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != ""){
             
             list.style.display = "block";
 
@@ -87,31 +102,17 @@ search.addEventListener("keyup", (event)=>{
             listItem.textContent = element.name;
             listItem.id = idListItem;
             listItem.setAttribute("onclick", "displayNames('" + element.name + "')");
-
+            listItem.classList.add("listItem");
             list.appendChild(listItem);
 
             listItemsOnDisplay.push(element.name);
-            
-        }else if(!element.name.toLowerCase().startsWith(event.target.value.toLowerCase()) && search.value != "" && listItemsOnDisplay.includes(element.name)){
-
-            const idListItem = element.id + "listItem";
-            const indexDelete = listItemsOnDisplay.indexOf(element.name);
-            listItemsOnDisplay.splice(indexDelete, 1);
-
-            document.querySelector(`#${idListItem}`).remove();
 
         }else if(search.value === ""){
-            listItemsOnDisplay = [];
-            list.innerHTML = "";
+
             list.style.display = "none";
+
         }
 
-        if(event.key === "Enter"){
-            search.value = list.firstChild.textContent;
-            list.innerHTML = "";
-            list.style.display = "none";
-            listItemsOnDisplay = [];
-        }
 
     });
 })
