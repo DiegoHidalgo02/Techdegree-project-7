@@ -477,6 +477,10 @@ div.member:not(:last-child){
   margin-top: 18px;
 }
 
+.settings > div:nth-child(3){
+  margin-top: 3rem;
+}
+
 .settings label{
   margin-left: auto;
 }
