@@ -597,6 +597,11 @@ input::placeholder, textarea::placeholder{
   top: 15%;
 }
 
+.switch-ios.switch-light input{
+  width: 100%;
+  height: 100%;
+}
+
 .switch-ios.switch-light input:checked ~ span {
   box-shadow: inset 0 0 0 30px #7477bf;
 }

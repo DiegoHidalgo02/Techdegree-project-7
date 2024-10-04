@@ -58,6 +58,37 @@ export const usersInfo = [
     }
 ];
 
+usersInfo.forEach(user =>{
+
+    localStorage.setItem(user.id, JSON.stringify(user));
+
+});
+
+const emailNotificationCheckBox = document.querySelector("#SendEmailCheckBox");
+const setProfileCheckBox =  document.querySelector("#SetProfilePublicCheckBox");
+
+const isCheckedEmail = localStorage.getItem('checkBoxStateEmail') === "true";
+const isCheckedSetProfile = localStorage.getItem('checkBoxStateSetProfile') === "true";
+
+emailNotificationCheckBox.checked = isCheckedEmail;
+setProfileCheckBox.checked = isCheckedSetProfile;
+
+const settingsControll = document.querySelector("#settings");
+
+settingsControll.addEventListener("change", (e)=>{
+
+    if(e.target.id === "SendEmailCheckBox"){
+     
+        localStorage.setItem("checkBoxStateEmail", emailNotificationCheckBox.checked);
+    
+    }else if(e.target.id === "SetProfilePublicCheckBox"){
+
+        localStorage.setItem("checkBoxStateSetProfile", setProfileCheckBox.checked);
+
+    }
+
+});
+
 
 function generateRandomActivity(user) {
     const activities = [
