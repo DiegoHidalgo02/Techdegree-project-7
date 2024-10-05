@@ -656,10 +656,18 @@ input::placeholder, textarea::placeholder{
   border-radius: 5px;
 }
 
-.settings button:nth-child(2){
+.settings #cancel{
   margin-left: auto;
   background-color: #999999;
   color: white;
+}
+
+.settings #cancel:hover{
+  background-color: #a5a5a5;
+}
+
+.settings #cancel:active{
+  background-color: #888888;
 }
 
 @media (min-width: 768px) {
