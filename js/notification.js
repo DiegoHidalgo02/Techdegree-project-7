@@ -21,7 +21,16 @@ const notification = [
   "New insights generated.",
 ];
 
+function localStorageGetNotification(user){
+  
+  const mess = localStorage.getItem(`${user}`);
 
+  if(mess){
+    return JSON.parse(mess);
+  }
+
+  return false; 
+}
 
 function randomNotification() {
 
@@ -53,10 +62,32 @@ function generateNotification(){
   notificationPoint.style.visibility = "visible";
 }
 
+
+
 setTimeout(() => {
   for (let i = 0; i < 2; i++) {
     generateNotification();
   }
+
+  const userName = document.querySelector("#user > h3").textContent;
+  const message = localStorageGetNotification(userName);
+
+  if(message){
+    const notificationElement = document.createElement("li")
+    const checkNotification = document.createElement("span");
+
+    checkNotification.classList.add("material-symbols-rounded");
+    checkNotification.textContent = "check_small";
+    checkNotification.id = "checkNotification"
+
+    notificationElement.textContent = `${message[0]}: ` + message[1];
+
+    notificationElement.appendChild(checkNotification);
+    notificationElement.id = "notify";
+    dropMenuList.appendChild(notificationElement); 
+  }
+  
+
 }, 4000);
 
 setInterval(() => {
