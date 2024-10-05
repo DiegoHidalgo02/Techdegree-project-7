@@ -67,6 +67,12 @@ SendButton.addEventListener("click", ()=>{
         ErrorOnDisplay = false
         succesOnDisplay = true;
     }
+
+    const userNameFrom = document.querySelector("#user > h3").textContent;
+    const message = [`${userNameFrom}`, `${textArea.value}`];
+
+    localStorage.setItem(`${search.value}`, JSON.stringify(message));
+
 })
 
 setInterval(() => {
