@@ -38,6 +38,15 @@ function createMessage(children, parent, textCont, className){
     messageHeader.appendChild(parent);
 }
 
+let messageArrayUnder = localStorage.getItem('messageArray');
+
+let messageArray = JSON.parse(messageArrayUnder);
+
+if(!messageArray || messageArray === "null"){
+    messageArray = [];
+}
+
+
 SendButton.addEventListener("click", ()=>{
 
     if (search.value === "" || textArea.value === "") {
@@ -69,9 +78,11 @@ SendButton.addEventListener("click", ()=>{
     }
 
     const userNameFrom = document.querySelector("#user > h3").textContent;
-    const message = [`${userNameFrom}`, `${textArea.value}`];
+    const message = [`${userNameFrom}: ${textArea.value}`];
+    messageArray.push(message);
+    localStorage.setItem('messageArray', messageArray);
 
-    localStorage.setItem(`${search.value}`, JSON.stringify(message));
+    localStorage.setItem(`${search.value}`, JSON.stringify(messageArray));
 
 })
 

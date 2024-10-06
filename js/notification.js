@@ -44,7 +44,7 @@ function randomNotification() {
 
 }
 
-function generateNotification(){
+function generateNotification(mess){
 
   const notification = document.createElement("li")
   const checkNotification = document.createElement("span");
@@ -53,7 +53,13 @@ function generateNotification(){
   checkNotification.textContent = "check_small";
   checkNotification.id = "checkNotification"
 
-  notification.textContent = randomNotification();
+  if(mess){
+    notification.textContent = mess;
+  }else{
+    notification.textContent = randomNotification();
+  }
+
+
   notification.appendChild(checkNotification);
   notification.id = "notify"
 
@@ -73,22 +79,16 @@ setTimeout(() => {
   const message = localStorageGetNotification(userName);
 
   if(message){
-    const notificationElement = document.createElement("li")
-    const checkNotification = document.createElement("span");
 
-    checkNotification.classList.add("material-symbols-rounded");
-    checkNotification.textContent = "check_small";
-    checkNotification.id = "checkNotification"
+    for(let i = 0; i < message.length; i++){
 
-    notificationElement.textContent = `${message[0]}: ` + message[1];
+      let text = `${message[i]}`;
+      generateNotification(text);
 
-    notificationElement.appendChild(checkNotification);
-    notificationElement.id = "notify";
-    dropMenuList.appendChild(notificationElement); 
+    }
   }
   
-
-}, 4000);
+}, 60000);
 
 setInterval(() => {
   if(notification.length !== notificationTextGenerated.length){
