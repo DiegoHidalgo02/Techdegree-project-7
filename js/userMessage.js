@@ -38,12 +38,19 @@ function createMessage(children, parent, textCont, className){
     messageHeader.appendChild(parent);
 }
 
-let messageArrayUnder = localStorage.getItem('messageArray');
-
-let messageArray = JSON.parse(messageArrayUnder);
-
+/*export let messageArray = JSON.parse(localStorage.getItem('messageArray'));
 if(!messageArray || messageArray === "null"){
     messageArray = [];
+}*/
+
+
+
+
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
 }
 
 
@@ -77,14 +84,16 @@ SendButton.addEventListener("click", ()=>{
         succesOnDisplay = true;
     }
 
-    const userNameFrom = document.querySelector("#user > h3").textContent;
-    const message = [`${userNameFrom}: ${textArea.value}`];
-    messageArray.push(message);
-    localStorage.setItem('messageArray', messageArray);
+    let existingMessages = JSON.parse(localStorage.getItem(search.value)) || [];
 
-    localStorage.setItem(`${search.value}`, JSON.stringify(messageArray));
+    const userNameFrom = document.querySelector("#user > h3").textContent;
+    const message = [generateUUID(), `${userNameFrom}: ${textArea.value}`]; 
+    /*messageArray.push(message);*/
+    existingMessages.push(message);
+    localStorage.setItem(`${search.value}`, JSON.stringify(existingMessages));
 
 })
+
 
 setInterval(() => {
     if(ErrorOnDisplay === true || succesOnDisplay === true){

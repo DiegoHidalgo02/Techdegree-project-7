@@ -215,21 +215,17 @@ users.addEventListener('click', e => {
 
 const settingsControll = document.querySelector("#settings");
 
-settingsControll.addEventListener("change", (e)=>{
+const saveSettingsButton = document.querySelector("#save");
+
+saveSettingsButton.addEventListener("click", ()=>{
 
     const userImg = document.querySelector("#user > img");
     const localStorageEmailId = 'checkBoxStateEmail' + `${userImg.alt}`;
     const localStorageProfileId = 'checkBoxStateSetProfile' + `${userImg.alt}`;
 
-    if(e.target.id === "SendEmailCheckBox"){
-            
-        localStorage.setItem(`${localStorageEmailId}`, emailNotificationCheckBox.checked);
-            
-    }else if(e.target.id === "SetProfilePublicCheckBox"){
-        
-        localStorage.setItem(`${localStorageProfileId}`, setProfileCheckBox.checked);
-        
-    }
+    localStorage.setItem(`${localStorageEmailId}`, emailNotificationCheckBox.checked);
+
+    localStorage.setItem(`${localStorageProfileId}`, setProfileCheckBox.checked);
 
 });
 
