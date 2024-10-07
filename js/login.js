@@ -1,3 +1,5 @@
+import { notificationGet } from "./notification.js";
+
 const overlay = document.querySelector("#overlay")
 const users = document.querySelector(".users");
 const header = document.querySelector("header");
@@ -57,6 +59,22 @@ export const usersInfo = [
         date:"10/15/20"
     }
 ];
+
+const emailNotificationCheckBox = document.querySelector("#SendEmailCheckBox");
+const setProfileCheckBox =  document.querySelector("#SetProfilePublicCheckBox");
+
+function localStorageGetItem(id){
+
+    const localStorageEmailId = 'checkBoxStateEmail' + `${id}`;
+    const localStorageProfileId = 'checkBoxStateSetProfile' + `${id}`;
+
+    const isCheckedEmail = localStorage.getItem(`${localStorageEmailId}`) === "true";
+    const isCheckedSetProfile = localStorage.getItem(`${localStorageProfileId}`) === "true";
+
+    emailNotificationCheckBox.checked = isCheckedEmail;
+    setProfileCheckBox.checked = isCheckedSetProfile;
+
+}
 
 
 function generateRandomActivity(user) {
@@ -151,30 +169,42 @@ users.addEventListener('click', e => {
         case usersInfo[0].id:
             userName.textContent = usersInfo[0].name;
             userImg.src = usersInfo[0].imgPath;
+            userImg.alt = usersInfo[0].id;
             facebook.textContent = usersInfo[0].social.facebook.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             instagram.textContent = usersInfo[0].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[0].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[1].id:
             userName.textContent = usersInfo[1].name;
             userImg.src = usersInfo[1].imgPath;
+            userImg.alt = usersInfo[1].id;
             facebook.textContent = usersInfo[1].social.facebook.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             instagram.textContent = usersInfo[1].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[1].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[2].id:
             userName.textContent = usersInfo[2].name;
             userImg.src = usersInfo[2].imgPath;
+            userImg.alt = usersInfo[2].id;
             facebook.textContent = usersInfo[2].social.facebook.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             instagram.textContent = usersInfo[2].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[2].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[3].id:
             userName.textContent = usersInfo[3].name;
             userImg.src = usersInfo[3].imgPath;
+            userImg.alt = usersInfo[3].id;
             facebook.textContent = usersInfo[3].social.facebook.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             instagram.textContent = usersInfo[3].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[3].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            localStorageGetItem(userId);
+            notificationGet();
             break;
         default:
 
@@ -183,3 +213,34 @@ users.addEventListener('click', e => {
     }
 })
 
+const settingsControll = document.querySelector("#settings");
+
+const saveSettingsButton = document.querySelector("#save");
+
+saveSettingsButton.addEventListener("click", ()=>{
+
+    const userImg = document.querySelector("#user > img");
+    const localStorageEmailId = 'checkBoxStateEmail' + `${userImg.alt}`;
+    const localStorageProfileId = 'checkBoxStateSetProfile' + `${userImg.alt}`;
+
+    localStorage.setItem(`${localStorageEmailId}`, emailNotificationCheckBox.checked);
+
+    localStorage.setItem(`${localStorageProfileId}`, setProfileCheckBox.checked);
+
+});
+
+const cancelSettings = document.querySelector("#cancel");
+
+cancelSettings.addEventListener("click", ()=>{
+
+    const userImg = document.querySelector("#user > img");
+    const localStorageEmailId = 'checkBoxStateEmail' + `${userImg.alt}`;
+    const localStorageProfileId = 'checkBoxStateSetProfile' + `${userImg.alt}`;
+    
+    localStorage.removeItem(`${localStorageEmailId}`);
+    localStorage.removeItem(`${localStorageProfileId}`);
+
+    const timeZone = document.querySelector("#timezone");
+    timeZone.value = "Select";
+
+});

@@ -21,7 +21,16 @@ const notification = [
   "New insights generated.",
 ];
 
+function localStorageGetNotification(user){
+  
+  const mess = localStorage.getItem(`${user}`);
 
+  if(mess){
+    return JSON.parse(mess);
+  }
+
+  return false; 
+}
 
 function randomNotification() {
 
@@ -35,7 +44,7 @@ function randomNotification() {
 
 }
 
-function generateNotification(){
+function generateNotification(id, mess){
 
   const notification = document.createElement("li")
   const checkNotification = document.createElement("span");
@@ -44,20 +53,48 @@ function generateNotification(){
   checkNotification.textContent = "check_small";
   checkNotification.id = "checkNotification"
 
-  notification.textContent = randomNotification();
+  if(mess && id){
+    notification.textContent = mess;
+    notification.id = id;
+  }else{
+    notification.textContent = randomNotification();
+    notification.id = "notify"
+  }
+
+
   notification.appendChild(checkNotification);
-  notification.id = "notify"
 
   notificationUnreaded.push(notification)
   dropMenuList.appendChild(notification);
   notificationPoint.style.visibility = "visible";
 }
 
-setTimeout(() => {
-  for (let i = 0; i < 2; i++) {
-    generateNotification();
-  }
-}, 4000);
+
+export function notificationGet(){
+
+  setTimeout(() => {
+    for (let i = 0; i < 2; i++) {
+      generateNotification();
+    }
+  
+    const userName = document.querySelector("#user > h3").textContent;
+    const message = localStorageGetNotification(userName);
+  
+    if(message){
+  
+      for(let i = 0; i < message.length; i++){
+        
+        let id = `${message[i][0]}`
+        let text = `${message[i][1]}`;
+        generateNotification(id, text);
+  
+      }
+    }
+    
+  }, 1000);
+
+}
+
 
 setInterval(() => {
   if(notification.length !== notificationTextGenerated.length){
@@ -99,7 +136,33 @@ closeNotification.addEventListener("click", () => {
   }
 })
 
+function deleteMessageLc(message){
+
+  const userName = document.querySelector("#user > h3").textContent;
+
+  const to = JSON.parse(localStorage.getItem(userName));
+
+  const foundArray = to.find(subArray => subArray[0] === message);
+
+  if(foundArray !== -1){
+    to.splice(foundArray, 1);
+    localStorage.setItem(userName, JSON.stringify(to));
+  }
+
+}
+
 markAllRead.addEventListener("click", ()=>{
+
+  const messageElements = Array.from(dropMenuList.children);
+
+  const messagesToDelete = messageElements.filter(element => element.id !== "notify");
+
+  messagesToDelete.forEach(messageElement => {
+    const messageId = messageElement.id;
+    deleteMessageLc(messageId);
+  });
+
+
   dropMenuList.innerHTML = '';
 
   notificationUnreaded.forEach(e =>{
@@ -110,6 +173,7 @@ markAllRead.addEventListener("click", ()=>{
     notificationUnreaded.pop();
   }
   
+
   if(notificationUnreaded.length === 0){
     notificationPoint.style.visibility = "hidden";
   }
@@ -120,14 +184,40 @@ markAllRead.addEventListener("click", ()=>{
 dropMenuList.addEventListener("click", e =>{
 
   if(e.target.tagName === "SPAN"){
-    e.target.parentNode.remove();
     notificationReaded.push(e);
     notificationUnreaded.pop();
+
+    if(e.target.parentNode.textContent.includes(":")){
+
+      const idHtmlElment = e.target.parentNode.id;
+
+      deleteMessageLc(idHtmlElment);
+
+      /*const userName = document.querySelector("#user > h3").textContent;
+
+      const to = JSON.parse(localStorage.getItem(userName));
+
+      const foundArray = to.find(subArray => subArray[0] === idHtmlElment);
+      
+      if (foundArray !== -1) {
+        to.splice(foundArray, 1);
+        localStorage.setItem(userName, JSON.stringify(to));
+      }*/
+      e.target.parentNode.remove(); 
+    }
+    if(e){
+      e.target.parentNode.remove();   
+    }
+    
+
     if(notificationUnreaded.length === 0){
       notificationPoint.style.visibility = "hidden";
     }
+
+
+
   }
 
-})
+});
 
 

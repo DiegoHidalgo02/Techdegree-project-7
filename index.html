@@ -191,7 +191,7 @@
             <div>
                 <p>Send Email Notifications</p>
                 <label class="switch-light switch-ios" style="width: 100px" onclick="">
-                    <input type="checkbox">
+                    <input id="SendEmailCheckBox" type="checkbox">
                     <span>
                     <span>Off</span>
                     <span>On</span>
@@ -202,7 +202,7 @@
             <div>
                 <p>Set Profile to Public</p>
                 <label class="switch-light switch-ios" style="width: 100px" onclick="">
-                    <input type="checkbox">
+                    <input id="SetProfilePublicCheckBox" type="checkbox">
                     <span>
                     <span>Off</span>
                     <span>On</span>
@@ -212,7 +212,7 @@
             </div>
             <div class="selection">
                 <select id="timezone" class="form-field">
-                    <option disabled selected>Select a Timezone</option>
+                    <option value="Select" disabled selected>Select a Timezone</option>
                     <option value="America/New_York">America/New_York</option>
                     <option value="Europe/London">Europe/London</option>
                     <option value="Asia/Tokyo">Asia/Tokyo</option>
@@ -227,8 +227,8 @@
     </main>
     
     <script type="module" src="js/login.js"></script>
-    <script type="module" src="js/responsive.js"></script>
-    <script src="js/notification.js"></script>
     <script type="module" src="js/userMessage.js"></script>
+    <script type="module" src="js/notification.js"></script>
+    <script type="module" src="js/responsive.js"></script>
 </body>
 </html>
