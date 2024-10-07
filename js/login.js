@@ -1,3 +1,5 @@
+import { notificationGet } from "./notification.js";
+
 const overlay = document.querySelector("#overlay")
 const users = document.querySelector(".users");
 const header = document.querySelector("header");
@@ -172,6 +174,7 @@ users.addEventListener('click', e => {
             instagram.textContent = usersInfo[0].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[0].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[1].id:
             userName.textContent = usersInfo[1].name;
@@ -181,6 +184,7 @@ users.addEventListener('click', e => {
             instagram.textContent = usersInfo[1].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[1].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[2].id:
             userName.textContent = usersInfo[2].name;
@@ -190,6 +194,7 @@ users.addEventListener('click', e => {
             instagram.textContent = usersInfo[2].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[2].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             localStorageGetItem(userId);
+            notificationGet();
             break;
         case usersInfo[3].id:
             userName.textContent = usersInfo[3].name;
@@ -199,6 +204,7 @@ users.addEventListener('click', e => {
             instagram.textContent = usersInfo[3].social.instagram.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             twitter.textContent = usersInfo[3].social.twitter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             localStorageGetItem(userId);
+            notificationGet();
             break;
         default:
 
