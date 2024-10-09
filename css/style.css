@@ -55,8 +55,7 @@ body.grid-container {
   font-family: "Open Sans", sans-serif;
 }
 
-.widget-container-full,
-.widget-container-half {
+.widget-container-full, .widget-container-half{
   width: 95vw;
 }
 
@@ -732,11 +731,11 @@ input::placeholder, textarea::placeholder{
     align-self: flex-end;
   }
 
-  .widget-container-full {
+  .widget-container-full{
     width: 90vw;
   }
 
-  .widget-container-half {
+  .widget-container-half{
     width: 45vw;
   }
 
