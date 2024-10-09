@@ -329,6 +329,10 @@ main{
   transform: scale(.95);
 }
 
+#traffic-header{
+  margin-bottom: 17px;
+}
+
 
 section{
   border-bottom: 1.3px solid rgb(198, 196, 196);
@@ -719,12 +723,21 @@ input::placeholder, textarea::placeholder{
 
   .traffic-header{
     display: flex;
+    margin-bottom: 5px;
   }
 
   .traffic-nav{
     margin-left: auto;
     width: 400px;
     align-self: flex-end;
+  }
+
+  .widget-container-full {
+    width: 90vw;
+  }
+
+  .widget-container-half {
+    width: 45vw;
   }
 
   .social-container{
