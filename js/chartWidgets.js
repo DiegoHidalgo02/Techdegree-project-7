@@ -134,3 +134,7 @@ let mobileChart = new Chart(mobileCanvas,{
 
 })
 
+
+const trafficNav = document.querySelector(".traffic-nav"); 
+const trafficNavbarInputs = document.querySelectorAll(".traffic-nav input");
+
