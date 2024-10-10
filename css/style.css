@@ -387,6 +387,11 @@ input[id="Monthly"]:checked ~ .slider{
     transform: translateX(300%);
 }
 
+.traffic-header, .titleSectionChart{
+  margin-bottom: 18px;
+}
+
+
 .social-container{
   display: flex;
   flex-direction: column;
