@@ -64,3 +64,72 @@ let trafficChart =  new Chart(trafficCanvas,{
         }
     }
 });
+
+let dailyChart = new Chart(dailyCanvas, {
+
+    type: 'bar',
+
+    data:{
+
+        labels: ["S", "M", "T", "W", "T", "F", "S"],
+        datasets: [{
+            label: '# of Hits',
+            data: [75, 115, 175, 125, 225, 200, 100],
+            backgroundColor: '#7477BF',
+            borderWidth: 1
+        }]
+
+    },
+
+    options:{
+
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+
+    }
+
+
+});
+
+let mobileChart = new Chart(mobileCanvas,{
+
+    type: 'doughnut',
+
+    data:{
+
+        labels: ["Desktop", "Tablet", "Phones"],
+        datasets: [{
+
+            label: '# of Users',
+            data: [2000, 550, 500],
+            borderWidth: 0,
+            backgroundColor: ['#7477BF',
+                              '#78CF82',
+                              '#51B6C8']
+        }]
+
+    },
+
+    options:{
+        aspectRatio: 1.9,
+        plugins: {
+            legend: {
+                position: 'right',
+                labels: {
+                    boxWidth: 20,
+                    fontStyle: 'bold'
+                }
+            }
+        }
+    }
+
+})
