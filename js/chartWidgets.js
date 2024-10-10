@@ -138,3 +138,26 @@ let mobileChart = new Chart(mobileCanvas,{
 const trafficNav = document.querySelector(".traffic-nav"); 
 const trafficNavbarInputs = document.querySelectorAll(".traffic-nav input");
 
+trafficNav.addEventListener("change", e=>{
+
+    switch (e.target.id){
+        case "Hourly":
+            trafficChart.data.datasets[0].data = trafficData;
+            trafficChart.update();
+            break;
+        case "Daily":
+            trafficChart.data.datasets[0].data = trafficDataDaily;
+            trafficChart.update();
+            break;
+        case "Weekly":
+            trafficChart.data.datasets[0].data = trafficDataWeekly;
+            trafficChart.update();
+            break;
+        case "Monthly":
+            trafficChart.data.datasets[0].data = trafficDataMoths;
+            trafficChart.update();
+            break;
+    }       
+
+
+});
