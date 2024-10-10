@@ -59,10 +59,13 @@ SendButton.addEventListener("click", ()=>{
     if (search.value === "" || textArea.value === "") {
         if (search.value === "" && textArea.value !== "") {
             paragraph.textContent = "Error: search field empty";
+            alert("Please fill out user field before sending");
         } else if (textArea.value === "" && search.value !== "") {
             paragraph.textContent = "Error: text area empty";
+            alert("Please fill out message field before sending");
         } else {
             paragraph.textContent = "Error: search field and text area are empty";
+            alert("Please fill out user and message fields before sending");
         }
 
         createMessage(icon, paragraph, "warning", "error");
@@ -73,6 +76,8 @@ SendButton.addEventListener("click", ()=>{
         succesOnDisplay = false;
 
      } else if(succesOnDisplay === false) {
+
+        alert(`Message successfully sent to: ${user.value}`);
 
         paragraph.textContent = "Message sent";
 
