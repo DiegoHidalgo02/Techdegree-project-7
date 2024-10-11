@@ -77,7 +77,7 @@ SendButton.addEventListener("click", ()=>{
 
      } else if(succesOnDisplay === false) {
 
-        alert(`Message successfully sent to: ${user.value}`);
+        alert(`Message successfully sent to: ${search.value}`);
 
         paragraph.textContent = "Message sent";
 
