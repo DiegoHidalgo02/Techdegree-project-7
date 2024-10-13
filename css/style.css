@@ -745,7 +745,6 @@ input::placeholder, textarea::placeholder{
 
   .social-container > div{
     flex: 1;
-    float: left;
   }
 
   .social-container > div:not(:nth-of-type(1)){
